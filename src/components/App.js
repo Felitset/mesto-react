@@ -23,7 +23,8 @@ function App() {
         onAddPlace={handleAddPlaceClick}
         onCardClick={handleCardClick} />
       <Footer />
-      <PopupWithForm title="Редактировать профиль" name="profile-edit" buttonText="Сохранить" isOpen={editProfileIsOpened} onClose={closeAllPopups}>
+      <PopupWithForm title="Редактировать профиль" name="profile-edit" buttonText="Сохранить" 
+      isOpen={editProfileIsOpened} onClose={closeAllPopups}>
         <input id="profile-name-input" className="popup__input popup__input_type_name" type="text" name="name"
           placeholder="Имя" required minLength="2" maxLength="40" />
         <span className="profile-name-input-error"></span>
@@ -31,7 +32,9 @@ function App() {
           placeholder="Профессия" required minLength="2" maxLength="200" />
         <span className="job-input-error"></span>
       </PopupWithForm>
-      <PopupWithForm title="Новое место" name="add-card" buttonText="Создать" isOpen={addPlaceIsOpened} onClose={closeAllPopups}>
+
+      <PopupWithForm title="Новое место" name="add-card" buttonText="Создать" 
+      isOpen={addPlaceIsOpened} onClose={closeAllPopups}>
         <input id="card-title-input" className="popup__input popup__input_type_card-title" type="text" name="card_title"
           placeholder="Название" required minLength="2" maxLength="30" />
         <span className="card-title-input-error"></span>
@@ -39,10 +42,15 @@ function App() {
           placeholder="Ссылка на картинку" required />
         <span className="image-link-input-error"></span>
       </PopupWithForm>
-      <ImagePopup card={selectedCard} onClose={closeAllPopups} isOpen={imagePopupIsOpened} />
+
+      <ImagePopup card={selectedCard} 
+      onClose={closeAllPopups} isOpen={imagePopupIsOpened} />
+
       <PopupWithForm title="Вы уверены?" name="delete-card" buttonText="Да">
       </PopupWithForm>
-      <PopupWithForm title="Обновить аватар" name="new-avatar" buttonText="Сохранить" isOpen={editAvatarIsOpened} onClose={closeAllPopups}>
+
+      <PopupWithForm title="Обновить аватар" name="new-avatar" buttonText="Сохранить" 
+      isOpen={editAvatarIsOpened} onClose={closeAllPopups}>
         <input id="avatar-link-input" className="popup__input popup__input_type_avatar-image-link" type="url" name="avatar_link"
           placeholder="Ссылка на картинку" required />
         <span className="avatar-link-input-error"></span>
