@@ -1,6 +1,10 @@
 import React from 'react';
 
 function Card(props) {
+    
+    function handleClick() {
+        props.onCardClick(props.card);
+    }
 
     return (
         <li key={props.card._id} className="gallery__item">
@@ -16,10 +20,6 @@ function Card(props) {
             </div>
         </li>
     )
-
-    function handleClick() {
-        props.onCardClick(props.card);
-    }
 
 }
 
