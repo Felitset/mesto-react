@@ -6,22 +6,12 @@ export class Api {
         this.cardUrl = this.apiHost + '/cards';
         this.userUrl = this.apiHost + '/users/me';
         this.avatarUrl = this.userUrl + '/avatar';
-
     }
 
-    saveRemoteLike(cardId) {
+    changeLikeCardStatus(cardId, isLiked) {
+        const method = isLiked ? 'PUT' : 'DELETE';
         return fetch(this.cardUrl + '/' + cardId + '/likes', {
-            method: 'PUT',
-            headers: {
-                'authorization': this.authToken
-            }
-        })
-            .then(this._checkResponse);
-    }
-
-    deleteRemoteLike(cardId) {
-        return fetch(this.cardUrl + '/' + cardId + '/likes', {
-            method: 'DELETE',
+            method: method,
             headers: {
                 'authorization': this.authToken
             }
@@ -38,7 +28,7 @@ export class Api {
             },
             body: JSON.stringify({
                 name: userInfo.name,
-                about: userInfo.profession
+                about: userInfo.about
             })
         })
             .then(this._checkResponse);
@@ -99,7 +89,7 @@ export class Api {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                avatar: imageLink.avatar_link
+                avatar: imageLink.avatar
             })
         })
             .then(this._checkResponse);
