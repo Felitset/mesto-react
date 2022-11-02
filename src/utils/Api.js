@@ -51,10 +51,7 @@ export class Api {
                 'authorization': this.authToken,
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                name: placeInfo.card_title,
-                link: placeInfo.image_link
-            })
+            body: JSON.stringify(placeInfo)
         })
             .then(this._checkResponse);
     }
