@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import PopupWithForm from "./PopupWithForm";
 
 function AddPlacePopup(props) {
@@ -20,6 +20,8 @@ function AddPlacePopup(props) {
             name: title,
             link: link
         });
+        setTitle('');
+        setLink('');
     }
 
     return (
@@ -30,16 +32,28 @@ function AddPlacePopup(props) {
             isOpen={props.isOpen}
             onClose={props.onClose}
             onSubmit={handleSubmit}>
-            <input id="card-title-input" className="popup__input popup__input_type_card-title" type="text" name="card_title"
-                placeholder="Название" required minLength="2" maxLength="30"
+            <input
+                id="card-title-input"
+                className="popup__input popup__input_type_card-title"
+                type="text"
+                name="card_title"
+                placeholder="Название"
+                required
+                minLength="2"
+                maxLength="30"
                 value={title}
                 onChange={handleNewTitle} />
             <span className="card-title-input-error"></span>
-            <input id="image-link-input" className="popup__input popup__input_type_image-link" type="url" name="image_link"
-                placeholder="Ссылка на картинку" required
+
+            <input
+                id="image-link-input"
+                className="popup__input popup__input_type_image-link"
+                type="url"
+                name="image_link"
+                placeholder="Ссылка на картинку"
+                required
                 value={link}
-                onChange={handleNewLink}
-                 />
+                onChange={handleNewLink} />
             <span className="image-link-input-error"></span>
         </PopupWithForm>
     )

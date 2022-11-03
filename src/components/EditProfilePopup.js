@@ -25,10 +25,12 @@ function EditProfilePopup(props) {
     function handleSubmit(e) {
         e.preventDefault();
         props.onUpdateUser({
-          name,
-          about: description,
+            name,
+            about: description,
         });
-      }
+        setName('');
+        setDescription('');
+    }
 
     return (
         <PopupWithForm
@@ -38,11 +40,30 @@ function EditProfilePopup(props) {
             isOpen={props.isOpen}
             onClose={props.onClose}
             onSubmit={handleSubmit}>
-            <input id="profile-name-input" className="popup__input popup__input_type_name" type="text" name="name"
-                placeholder="Имя" required minLength="2" maxLength="40" value={name} onChange={handleNameChange} />
+            <input
+                id="profile-name-input"
+                className="popup__input popup__input_type_name"
+                type="text"
+                name="name"
+                placeholder="Имя"
+                required
+                minLength="2"
+                maxLength="40"
+                value={name || ''}
+                onChange={handleNameChange} />
             <span className="profile-name-input-error"></span>
-            <input id="job-input" className="popup__input popup__input_type_job" type="text" name="profession"
-                placeholder="Профессия" required minLength="2" maxLength="200" value={description} onChange={handleDescriptionChange} />
+
+            <input
+                id="job-input"
+                className="popup__input popup__input_type_job"
+                type="text"
+                name="profession"
+                placeholder="Профессия"
+                required
+                minLength="2"
+                maxLength="200"
+                value={description || ''}
+                onChange={handleDescriptionChange} />
             <span className="job-input-error"></span>
         </PopupWithForm>
     )

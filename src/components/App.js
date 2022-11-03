@@ -79,7 +79,7 @@ function App() {
     editAvatarPopupOpen(false);
     editProfilePopupOpen(false);
     isAddPlacePopupOpen(false);
-    isSelectedCard(false);
+    isSelectedCard({});
     isImagePopupIsOpened(false);
   }
 
@@ -90,7 +90,9 @@ function App() {
         setCurrentUser(res)
         closeAllPopups()
       })
-
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
   function handleUpdateAvatar(imageLink) {
@@ -98,6 +100,9 @@ function App() {
       .then((res) => {
         setCurrentUser(res)
         closeAllPopups()
+      })
+      .catch((err) => {
+        console.log(err)
       })
   }
 
@@ -107,6 +112,9 @@ function App() {
       .then((res) => {
         setCards([res, ...cards]);
         closeAllPopups()
+      })
+      .catch((err) => {
+        console.log(err)
       })
   }
 
