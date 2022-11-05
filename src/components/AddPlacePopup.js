@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PopupWithForm from "./PopupWithForm";
 
-function AddPlacePopup(props) {
 
+function AddPlacePopup(props) {
     const [title, setTitle] = useState('');
     const [link, setLink] = useState('');
+
+    useEffect(() => {
+        if (props.isOpen) {
+            setTitle('');
+            setLink('');
+        }
+    }, [props.isOpen])
 
     function handleNewTitle(e) {
         setTitle(e.target.value);
@@ -19,9 +26,7 @@ function AddPlacePopup(props) {
         props.onAddPlace({
             name: title,
             link: link
-        });
-        setTitle('');
-        setLink('');
+        })
     }
 
     return (

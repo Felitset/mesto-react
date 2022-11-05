@@ -16,7 +16,7 @@ function EditProfilePopup(props) {
     function handleDescriptionChange(event) {
         setDescription(event.target.value);
     }
-
+   
     useEffect(() => {
         setName(currentUser.name);
         setDescription(currentUser.about);
@@ -28,8 +28,6 @@ function EditProfilePopup(props) {
             name,
             about: description,
         });
-        setName('');
-        setDescription('');
     }
 
     return (
